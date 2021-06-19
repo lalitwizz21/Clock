@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Clock</title>
+    <style>
+      body {
+        font-weight: bolder;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(216, 205, 186);
+      }
+
+      h1 {
+        margin: 90px;
+        text-align: center;
+        text-decoration: underline;
+        text-shadow: 2px 2px 10px rgb(182, 153, 153);
+      }
+
+      .container {
+        width: 60%;
+        height: 280px;
+        border: 20px solid rgb(78, 73, 73);
+        border-radius: 30px;
+        box-shadow: 15px 15px 25px;
+        text-align: center;
+        background: #000;
+      }
+
+      #clock {
+        font-size: 9rem;
+        color: white;
+      }
+
+      .bottom {
+        text-align: center;
+        height: 50px;
+        width: 10%;
+        margin: 5rem auto;
+      }
+
+      .btn-outline-dark {
+        text-align: center;
+        padding: 0.5rem 1.8rem;
+        font-size: 1.2rem;
+        box-shadow: 5px 5px 10px rgb(92, 89, 84);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading">Digital Clock</h1>
+
+    <div class="container">
+      <p id="clock"></p>
+    </div>
+
+    <div class="bottom">
+      <button type="button" class="btn btn-outline-dark">Date</button>
+    </div>
+
+    <script>
+      para = document.getElementById("clock");
+      let clock;
+      let time;
+      let day;
+      setInterval(() => {
+        document.querySelector(".container").style.width = "60%";
+        document.getElementById("heading").innerHTML = "Digital Clock";
+        clock = new Date().toLocaleString(undefined, {
+          minimumIntegerDigits: 2,
+        });
+        time = clock.slice(11);
+        para.innerHTML = time;
+      }, 1000);
+
+      document
+        .getElementsByClassName("btn-outline-dark")[0]
+        .addEventListener("click", function () {
+          document.getElementById("heading").innerHTML = "Date";
+          getdate = new Date();
+          currentday = String(getdate).slice(0, 15);
+          document.querySelector(".container").style.width = "90%";
+          para.innerHTML = currentday;
+        });
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
